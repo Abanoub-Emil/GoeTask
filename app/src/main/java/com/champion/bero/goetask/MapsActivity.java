@@ -107,7 +107,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                                     Info distanceInfo = leg.getDistance();
                                     String distance = distanceInfo.getValue();
                                     int myDis = Integer.parseInt(distance);
-                                    Toast.makeText(MapsActivity.this, ""+distance, Toast.LENGTH_SHORT).show();
                                     ArrayList<LatLng> directionPositionList = leg.getDirectionPoint();
                                     PolylineOptions polylineOptions = DirectionConverter.createPolyline(MapsActivity.this, directionPositionList, 5, Color.RED);
                                     mMap.addPolyline(polylineOptions);
