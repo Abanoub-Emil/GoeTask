@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">GoeTask</string>
+    <string name="facebook_app_id">1635583489891655</string>
+    <string name="fb_login_protocol_scheme">fb1635583489891655</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="mylatitude">30.0319</string>
+    <string name="mylongitude">31.4084</string>
+    <string name="locate">Locate</string>
+    <string name="title_activity_maps">Map</string>
+</resources>

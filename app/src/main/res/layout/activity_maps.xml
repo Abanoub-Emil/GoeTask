@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:id="@+id/myAction_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBar_height"
+        android:orientation="horizontal"
+        android:background="#1987E0">
+
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/userImage"
+            android:layout_width="@dimen/_60_dp"
+            android:layout_height="@dimen/_60_dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_12_dp" />
+
+        <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/_20_sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/_12_dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/coordinate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/_12_dp"
+        android:weightSum="2"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/latitude"
+            android:layout_width="0dp"
+            android:text="@string/mylatitude"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/latitude"/>
+        <EditText
+            android:id="@+id/longitude"
+            android:layout_width="0dp"
+            android:text="@string/mylongitude"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="@string/longitude"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/locate"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:background="#1987E0"
+        android:layout_gravity="center"
+        android:text="@string/locate"
+        android:textColor="#ffffff" />
+
+
+    <fragment
+        android:id="@+id/map"
+        android:layout_height="match_parent"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/_30_dp"
+        android:layout_weight="4"
+        tools:context=".MapsActivity" />
+</LinearLayout>
