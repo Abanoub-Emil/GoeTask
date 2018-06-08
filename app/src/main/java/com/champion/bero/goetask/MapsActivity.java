@@ -8,6 +8,8 @@ import android.graphics.Color;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
@@ -86,9 +88,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         locate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
+                if (!locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
                     Toast.makeText(MapsActivity.this, "Please Enable Location", Toast.LENGTH_SHORT).show();
-                }
+                if(!isNetworkAvailable())
+                    Toast.makeText(MapsActivity.this, "Enable Internet Please", Toast.LENGTH_SHORT).show();
+
                 final LatLng currentLatlang = new LatLng(lat, lang);
                 double myLat = stringToDouble(etLat.getText().toString());
                 double myLang = stringToDouble(etLang.getText().toString());
@@ -233,5 +237,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
         }
+    }
+
+    // check network states
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 }
